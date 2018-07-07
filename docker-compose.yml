@@ -1,0 +1,67 @@
+version: '3.1'
+services:
+  ap:
+    container_name: im_ap
+    build: 
+      context: ./ap
+      args:
+        arg_http_proxy        : ${HTTP_PROXY}
+        arg_https_proxy       : ${HTTPS_PROXY}
+        IM_STORAGE_ROOT       : ${IM_STORAGE_ROOT}
+        arg_im_java_home      : ${IM_JAVA_HOME}
+        arg_resin_server_name : ${RESIN_SERVER_NAME}
+        arg_resin_guest_port  : ${RESIN_GUEST_PORT}
+        arg_jdbc_file_name    : ${JDBC_FILE_NAME}
+        arg_jdbc_download_url : ${JDBC_DOWNLOAD_URL}
+        arg_resin_home        : ${RESIN_HOME}
+    deploy:
+      resources:
+        limits:
+          memory: ${AP_MEMORY_SIZE}
+    ports:
+      - "${RESIN_HOST_PORT}:${RESIN_GUEST_PORT}"
+    command: ./bin/resinctl -server app-0 start-with-foreground
+    volumes:
+      - ./ap/war:/war
+      - resin-data:${RESIN_HOME}
+      - im-storage:${IM_STORAGE_ROOT}
+    environment:
+      - HTTP_PROXY
+      - HTTPS_PROXY
+      - IM_STORAGE_ROOT
+      - IM_JAVA_HOME
+      - RESIN_SERVER_NAME
+      - RESIN_GUEST_PORT
+      - JDBC_FILE_NAME
+      - JDBC_DOWNLOAD_URL
+      - RESIN_HOME
+    depends_on:
+      - "db"
+  db:
+    container_name: im_db
+    deploy:
+      resources:
+        limits:
+          memory: ${DB_MEMORY_SIZE}
+    image: postgres:10
+    ports:
+      - "${DB_HOST_PORT}:${DB_GUEST_PORT}"
+    environment:
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
+    restart: always
+    volumes:
+      - postgresql-db:/var/lib/postgresql/data
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - ${DBADM_HOST_PORT}:${DBADM_GUEST_PORT}
+volumes:
+  resin-data:
+    driver: local
+  im-storage:
+    driver: local
+  postgresql-db:
+    driver: local
