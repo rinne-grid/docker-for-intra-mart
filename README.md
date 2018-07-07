@@ -309,7 +309,7 @@ http://192.168.99.100:8888
 
 ![docker-toolbelt](http://www.rinsymbol.sakura.ne.jp/github_images/docker/resin-top.PNG)
 
-（Docker for WindowsやDocker for Macの場合は、上記IPアドレスではなくhttp://localhost:8888、もしくは自分で設定しているホスト名やIPアドレスにアクセスします。）
+（Docker for WindowsやDocker for Macの場合は、上記IPアドレスではなく  http://localhost:8888  もしくは自分で設定しているホスト名やIPアドレスにアクセスします。）
 
 * resinのページが開けることが確認できたら、warファイルをデプロイします
 
