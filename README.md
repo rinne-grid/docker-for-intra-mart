@@ -1,31 +1,5 @@
 
-### Dockerでやること
-
-* JDKのインストール
-* resin-proのセットアップ
-    * CentOSのインストール
-    * resinのmakeに必要なパッケージ・ライブラリのインストール
-    * make実行
-* データベースのセットアップ
-   * インストーラのダウンロード
-   * ミドルウェアのインストール
-   * データベース作成
-   * スキーマ、ユーザ作成
-   * 権限付与
-
-
-### 手動でやること
-
-* resin-proのセットアップ
-    * intra-martのダウンロードライブラリから、resin-pro-x.x.x.tar.gzをダウンロードし展開
-    * プロパティの設定
-* Jugglingプロジェクトの作成、warファイル出力
-* warファイルのデプロイ
-* intra-martのテナント環境セットアップ
-
-
-
-
+## docker for intra-mart: intra-martの検証環境をDockerコンテナ上に作成し、環境構築にかかる時間を削減
 
 ### Dockerで作成するintra-martのシステム構成
 
