@@ -1,5 +1,7 @@
 
-## docker for intra-mart: intra-martの検証環境をDockerコンテナ上に作成し、環境構築にかかる時間を削減
+## docker for intra-mart
+
+* intra-martの検証環境をDockerコンテナ上に作成し、環境構築にかかる時間を削減
 
 ### Dockerで作成するintra-martのシステム構成
 
