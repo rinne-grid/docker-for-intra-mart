@@ -10,6 +10,8 @@ ARG arg_jdbc_file_name
 ARG arg_jdbc_download_url
 ARG arg_im_java_home
 ARG arg_resin_home
+ARG arg_http_proxy 
+ARG arg_https_proxy
 
 # 環境変数にHTTPプロキシ情報を設定する
 # 定義: ./ap/.env HTTP_PROXY
@@ -17,6 +19,10 @@ ENV http_proxy=$arg_http_proxy
 ENV HTTP_PROXY=$arg_http_proxy
 ENV https_proxy=$arg_https_proxy
 ENV HTTPS_PROXY=$arg_https_proxy
+RUN export http_proxy=${http_proxy}
+RUN export HTTP_PROXY=${HTTP_PROXY}
+RUN export https_proxy=${https_proxy}
+RUN export HTTPS_PROXY=${HTTPS_PROXY}
 
 # resinサーバー名称を設定
 ENV RESIN_SERVER_NAME="${arg_resin_server_name}"
