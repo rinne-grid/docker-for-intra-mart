@@ -36,7 +36,7 @@
 |事象|コマンド|
 |----|--------|
 |Dockerコンテナを開始したい|docker-compose up|
-|Dockerコンテナをビルドして開始させたい|docker-compose up --build --no-cache|
+|Dockerコンテナをビルドしたい|docker-compose build --no-cache|
 |Dockerコンテナを終了させたい|docker-compose down|
 |DBデータやストレージを削除して、<br>新しくテナント環境セットアップから始めたい（永続化しているコンテナのがデータ全部消えるので要注意）|docker-compose up <br>docker-compose down -v<br>docker-compose up|
 |warファイルをアンデプロイしたい|docker exec im_ap /ap-server/bin/resinctl undeploy /war/imart.war|
@@ -298,7 +298,8 @@ HTTPS_PROXY=http://user:password@server:port/
 * docker-composeを利用し、コンテナを起動します
 
 ```sh
-> docker-compose up --build --no-cache -d
+> docker-compose build --no-cache
+> docker-compose up -d
 ```
 
 ネットワーク接続環境にもよりますが、早くて5分、おそくとも30分程度で完了します
