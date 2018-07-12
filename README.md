@@ -39,7 +39,7 @@
 |Dockerコンテナをビルドしたい|docker-compose build --no-cache|
 |Dockerコンテナを終了させたい|docker-compose down|
 |DBデータやストレージを削除して、<br>新しくテナント環境セットアップから始めたい（永続化しているコンテナのがデータ全部消えるので要注意）|docker-compose up <br>docker-compose down -v<br>docker-compose up|
-|warファイルをアンデプロイしたい|docker exec im_ap /ap-server/bin/resinctl undeploy /war/imart.war|
+|warファイルをアンデプロイしたい|docker exec im_ap /ap-server/bin/resinctl undeploy imart|
 |warファイルをデプロイしたい|docker exec im_ap /ap-server/bin/resinctl deploy /war/imart.war|
 
 
