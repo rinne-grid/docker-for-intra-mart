@@ -42,7 +42,7 @@ ENV CLASS_PATH="$JAVA_HOME/jre/lib:$JAVA_HOME/lib:$JAVA_HOME/lib/tools.jar"
 RUN rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
 RUN yum update -y && \
     yum install -y epel-release && \
-    yum install -y java-1.8.0-openjdk java-1.8.0-openjdk-devel gcc glibc-devel make openssl openssl-devel which tzdata wget && \
+    yum install -y java-1.8.0-openjdk-1.8.0.181-3.b13.el7_5.x86_64 java-1.8.0-openjdk-devel-1.8.0.181-3.b13.el7_5.x86_64 gcc glibc-devel make openssl openssl-devel which tzdata wget && \
     ln -sf /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
 
 #---------------------------------------------------------------------
@@ -65,5 +65,6 @@ RUN $RESIN_HOME/configure --prefix=$RESIN_HOME --enable-64bit && \
      make && \
      make install
 
+# RUN chmod x+ ./bin/resinctl
 # コンテナのresinポートを開放
 EXPOSE ${arg_resin_guest_port}
