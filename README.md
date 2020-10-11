@@ -3,6 +3,18 @@
 
 * intra-martの検証環境をDockerコンテナ上に作成し、環境構築にかかる時間を削減
 
+### Javaのバージョンについて
+
+* AP（Resin）のコンテナで利用するOpenJDKのバージョン記載については、Gitタグで管理しています。
+* 最新はOpenJDK11を利用していますが、OpenJDK8を指定したい場合、タグ指定の上cloneを実施してください。
+
+|tag|Javaバージョン|確認したResinバージョン|確認したiAPバージョン|
+|---|-----------|----|----|
+|v1.0-openjdk8|OpenJDK8|4.0.56より前のバージョンで確認|iAP 2019 Summerで確認|
+|v1.1-openjdk11|OpenJDK11|4.0.64で確認|iAP 2020 Summerで確認|
+
+
+
 ### Dockerで作成するintra-martのシステム構成
 
 #### Docker上の環境
