@@ -10,7 +10,10 @@ ARG arg_jdbc_file_name
 ARG arg_jdbc_download_url
 ARG arg_im_java_home
 ARG arg_resin_home
+
 ARG arg_container_jdk
+ARG arg_http_proxy
+ARG arg_https_proxy
 
 # 環境変数にHTTPプロキシ情報を設定する
 # 定義: ./ap/.env HTTP_PROXY
