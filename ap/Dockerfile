@@ -1,7 +1,4 @@
-FROM centos:7.5.1804
-
-RUN chsh -s /usr/bin/bash root
-
+FROM registry.access.redhat.com/ubi8/ubi:latest
 
 # --build-arg docker-composeのargsを受け取る
 ARG arg_resin_guest_port
@@ -32,9 +29,8 @@ RUN export RESIN_HOME=${RESIN_HOME}
 #---------------------------------------------------------------------
 # パッケージインストール
 #---------------------------------------------------------------------
-RUN rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
-RUN yum update -y && \
-    yum install -y epel-release && \
+RUN rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release
+RUN yum repolist && yum update -y && \
     yum install -y ${CONTAINER_JDK} "${CONTAINER_JDK}-devel" && \
     yum install -y gcc glibc-devel make openssl openssl-devel which tzdata wget && \
     ln -sf /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
@@ -60,8 +56,8 @@ WORKDIR $RESIN_HOME
 #---------------------------------------------------------------------
 RUN chmod 755 "$RESIN_HOME/configure"
 RUN $RESIN_HOME/configure --prefix=$RESIN_HOME --enable-64bit  && \
-     make && \
-     make install
+    make && \
+    make install
 
 # コンテナのresinポートを開放
 EXPOSE ${arg_resin_guest_port}
