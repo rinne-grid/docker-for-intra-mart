@@ -1,19 +1,28 @@
-
 ## docker for intra-mart
 
 * intra-martの検証環境をDockerコンテナ上に作成し、環境構築にかかる時間を削減
 
-### Javaのバージョンについて
+### バージョンについて
 
-* AP（Resin）のコンテナで利用するOpenJDKのバージョン記載については、Gitタグで管理しています。
-* 最新はOpenJDK11を利用していますが、OpenJDK8を指定したい場合、タグ指定の上cloneを実施してください。
+* AP（Resin）のコンテナについては、Gitタグで管理しています。
+* 利用したいバージョンのタグ指定の上cloneを実施してください。
 
-|tag|Javaバージョン|確認したResinバージョン|確認したiAPバージョン|
-|---|-----------|----|----|
-|v1.0-openjdk8|OpenJDK8|4.0.56より前のバージョンで確認|iAP 2019 Summerで確認|
-|v1.1-openjdk11|OpenJDK11|4.0.64で確認|iAP 2020 Summerで確認|
+```sh
+$ git clone https://github.com/rinne-grid/docker-for-intra-mart im -b <tag_name> 
+```
 
+|tag|OS|Javaバージョン|確認したResinバージョン|確認したiAPバージョン|
+|---|---|-----------|----|----|
+|v1.0-openjdk8|centos:7.5.1804(※1)|OpenJDK8|4.0.56より前のバージョンで確認|iAP 2019 Summerで確認|
+|v1.1-openjdk11|centos:7.5.1804(※1)|OpenJDK11|4.0.64で確認|iAP 2020 Summerで確認|
+|v2.0-openjdk11-rhel7.x|RHEL7.x|OpenJDK11|4.0.64で確認|iAP 2020 Summerで確認|
+|v2.0-openjdk11-rhel8.x|RHEL8.x(※1)|OpenJDK11|4.0.64で確認|iAP 2020 Summerで確認(※1)|
 
+（※1 iAP2019Summer, iAP2020Summerのサーバ要件は、RHEL6.x, RHEL7.xが前提となります。
+
+http://accel-archives.intra-mart.jp/2020-summer/document/iap/public/iap_release_note/texts/support_environment/index.html
+
+本リポジトリではRHEL8.xとiAP 2020 Summerの組み合わせで確認していますが、公式による動作保証がされているわけではありませんのでご注意ください。）
 
 ### Dockerで作成するintra-martのシステム構成
 
@@ -22,13 +31,12 @@
 
 |ホスト名|コンテナイメージ|目的|
 |--------|------------------------------|-----------|
-|ap|CentOS 7.5.1804(※1）(library/centos)|resin-proの実行及びwarデプロイ|
+|ap|RHEL7.x(RedHat Universal Base Image7 ubi7/ubi:latest)(※2)|resin-proの実行及びwarデプロイ|
 |db|PostgreSQL 10(library/postgres)|intra-martに関するデータの保存|
 |adminer|Adminer(library/adminer)|dbのデータ参照用のアプリ|
 
 
-（※1 厳密には、NTTデータイントラマート社はintra-martが動作するLinux環境として、Red Hat Enterprise Linux 6.x、7.xのみを動作保証しているため、
-本Docker関連ファイルを利用する場合は、あくまでも動作検証用の環境に留めておくことをおすすめします。本記事の内容によって発生した障害等について、一切責任を負いません）
+（※2 本Docker関連ファイルを利用する場合は、あくまでも動作検証用の環境に留めておくことをおすすめします。本リポジトリ内容の利用によって発生した障害等について、一切責任を負いません）
 
 
 
