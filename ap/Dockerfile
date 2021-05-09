@@ -1,4 +1,4 @@
-FROM registry.access.redhat.com/ubi8/ubi:latest
+FROM registry.access.redhat.com/ubi7/ubi:latest
 
 # --build-arg docker-composeのargsを受け取る
 ARG arg_resin_guest_port
