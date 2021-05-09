@@ -31,7 +31,7 @@ http://accel-archives.intra-mart.jp/2020-summer/document/iap/public/iap_release_
 
 |ホスト名|コンテナイメージ|目的|
 |--------|------------------------------|-----------|
-|ap|RHEL7.x(RedHat Universal Base Image7 ubi7/ubi:latest)(※2)|resin-proの実行及びwarデプロイ|
+|ap|RHEL8.x(RedHat Universal Base Image8 ubi8/ubi:latest)(※2)|resin-proの実行及びwarデプロイ|
 |db|PostgreSQL 10(library/postgres)|intra-martに関するデータの保存|
 |adminer|Adminer(library/adminer)|dbのデータ参照用のアプリ|
 
