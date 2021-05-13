@@ -17,7 +17,7 @@ $ git clone https://github.com/rinne-grid/docker-for-intra-mart im -b <tag_name>
 |v1.0-openjdk8|centos:7.5.1804(※1)|OpenJDK8|4.0.56より前のバージョンで確認|iAP 2019 Summerで確認|
 |v1.1-openjdk11|centos:7.5.1804(※1)|OpenJDK11|4.0.64で確認|iAP 2020 Summerで確認|
 |v2.0-openjdk11-rhel7.x|RHEL7.x|OpenJDK11|4.0.64で確認|iAP 2020 Summerで確認|
-|v2.0-openjdk11-rhel8.x|RHEL8.x(※1)|OpenJDK11|4.0.64で確認|iAP 2020 Summerで確認(※1)|
+|v2.0-openjdk11-rhel8.x|RHEL8.x(※1)|OpenJDK11|4.0.65で確認|iAP 2020 Summerで確認(※1)|
 
 （※1 iAP2019Summer, iAP2020Summerのサーバ要件は、RHEL6.x, RHEL7.xが前提となります。
 
